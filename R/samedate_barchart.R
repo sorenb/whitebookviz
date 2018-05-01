@@ -6,8 +6,21 @@
 #'
 #' @export
 
-samedate_barchart <- function(data, curDate, sortx, frontColors, backColor = "Gainsboro", labelx = NULL, labely = NULL, tickNumY, showScaleY, barWidth, width = NULL, height = NULL, elementId = NULL) {
-  
+samedate_barchart <- function(data, 
+                              curDate, 
+                              sortx, 
+                              frontColors, 
+                              backColor = "Gainsboro", 
+                              labelx = NULL, 
+                              labely = NULL, 
+                              tickNumY, 
+                              showScaleY, 
+                              barWidth,
+                              barsOffset,
+                              width = NULL, 
+                              height = NULL, 
+                              elementId = NULL)
+{
   # forward options using x
   opts = list(
     data = data,
@@ -19,7 +32,8 @@ samedate_barchart <- function(data, curDate, sortx, frontColors, backColor = "Ga
     labely = labely,
     tickNumY = tickNumY,
     showScaleY = showScaleY,
-    barWidth = barWidth
+    barWidth = barWidth,
+    barsOffset = barsOffset
   )
 
   # create widget
@@ -28,7 +42,7 @@ samedate_barchart <- function(data, curDate, sortx, frontColors, backColor = "Ga
     opts,
     width = width,
     height = height,
-    package = 'whitebookviz',
+    package = 'whitebook',
     elementId = elementId
   )
 }
@@ -51,7 +65,7 @@ samedate_barchart <- function(data, curDate, sortx, frontColors, backColor = "Ga
 #'
 #' @export
 samedate_barchartOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'samedate_barchart', width, height, package = 'whitebookviz')
+  htmlwidgets::shinyWidgetOutput(outputId, 'samedate_barchart', width, height, package = 'whitebook')
 }
 
 #' @rdname samedate_barchart-shiny
@@ -60,3 +74,4 @@ renderSamedate_barchart <- function(expr, env = parent.frame(), quoted = FALSE) 
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, samedate_barchartOutput, env, quoted = TRUE)
 }
+
