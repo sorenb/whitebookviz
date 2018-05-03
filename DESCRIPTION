@@ -3,7 +3,7 @@ Title: OBB White Book Visualizations
 Version: 0.0.0.9000
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
 Description: Misc. viz for OBB White Book
-Depends: R (>= 3.4.2)
+Depends: R (>= 3)
 License: What license is it under?
 Encoding: UTF-8	
 LazyData: true
