@@ -3,8 +3,8 @@ HTMLWidgets.widget({
   name: 'samedate_barchart',
   type: 'output',
   
-  // TODO: tooltip done, drop shadow (might look bad on paper), test i shiny, update func, upstart animation, config params done
-  // Notes: in d3 when using functions like function(d,i) d is the data element(?) and i is the index of it.
+  // TODO: tooltip done, update func, upstart animation?, config params done
+  // Notes: in d3 when using functions like function(d,i) d is the data element and i is the index of it.
 
   factory: function(el, width, height) {
 
@@ -29,7 +29,8 @@ HTMLWidgets.widget({
       	var barWidth = opts.barWidth;
       	var width = 1000 - margin.left - margin.right;
       	var height = 400 - margin.top - margin.bottom;
-  		  var alignCorrection = (width / 200); // The horizontal offset between front and back bars
+  		  var barsOffset = opts.barsOffset; // The horizontal offset between front and back bars
+  		  //var alignCorrection = (width / 200); // The horizontal offset between front and back bars
   		  var circleSize = (width / 300); // 
 
         // Interleave the backColor with the frontColors in an array. Front colors are odd. Back colors are even. Rembemer arrays start with 0
@@ -155,7 +156,7 @@ HTMLWidgets.widget({
       	 	  .attr('class', 'viz')
       	    .attr("y", function(d) { return y(d.count) })
       	    .attr("x", function(d) { 
-      	      return d.monthAndDay == curDate.substr(5,5)? x(d.year) : x(d.year) + alignCorrection;
+      	      return d.monthAndDay == curDate.substr(5,5)? x(d.year) : x(d.year) + barsOffset;
       	    })   // ternary op
       	    .attr("width",x.bandwidth ) // setting width in px instead of using the d3 controlled x.bandwidth might get you all kinds of alignment hurt!
       	    .attr("height", function(d) { 
@@ -244,3 +245,4 @@ HTMLWidgets.widget({
     };
   }
 });
+
