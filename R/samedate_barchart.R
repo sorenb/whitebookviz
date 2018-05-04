@@ -42,7 +42,7 @@ samedate_barchart <- function(data,
     opts,
     width = width,
     height = height,
-    package = 'whitebook',
+    package = 'whitebookviz',
     elementId = elementId
   )
 }
@@ -65,7 +65,7 @@ samedate_barchart <- function(data,
 #'
 #' @export
 samedate_barchartOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'samedate_barchart', width, height, package = 'whitebook')
+  htmlwidgets::shinyWidgetOutput(outputId, 'samedate_barchart', width, height, package = 'whitebookviz')
 }
 
 #' @rdname samedate_barchart-shiny
