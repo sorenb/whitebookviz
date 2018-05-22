@@ -106,7 +106,7 @@ HTMLWidgets.widget({
   
         // Create continous scale for the Y-axis
   	    var y = d3.scaleLinear()
-  		    .domain([0, d3.max(data, function(d) { return d.count + 3000})])  // +3000 to give a little space over the bars
+  		    .domain([0, d3.max(data, function(d) { return d.count + (d.count/3)})])  // plus one third of d.count to give a little dynamic space over the bars
   		    .range([height,0]);
      
         // Create/place the X-axis
