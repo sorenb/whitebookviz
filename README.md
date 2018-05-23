@@ -18,16 +18,18 @@ devtools::install_github("sorenb/whitebookviz")
 Samedate Barchart
 -----------------
 
-###Configuration parameters with examples:
+### Configuration parameters with examples:
 (These would be set in an R file e.g. app.R in a Shiny app, cf. the example app.R)
 
   curDate <- "2018-04-30"      # The matching date you want data from, across the years. Date format kan contain hours etc.  
   sortx <- "desc"              # Controls direction of the sorting of the years on the x-axis  
-  frontColors <- c('#aeb051',  
-                   '#468c8c',   
-                   '#3b364a',  # This vector contains the colors in the specified order of the foreground bars.  
-                   '#c03953',  # The colors will start over, if you have more bars than colors.  
-                   '#1d72aa')  # You can use color names, rgb or hex values.    
+
+  frontColors <- c('#aeb051','#468c8c','#3b364a','#c03953','#1d72aa')
+
+			       # This vector contains the colors in the specified order of the foreground bars. 
+                               # The colors will start over, if you have more bars than colors.  
+                               # You can use color names, rgb or hex values.    
+
   backColor <- "Gainsboro"     # The color of the background bars.  
   vizWidth <- ""  
   labelx <- "År"  
