@@ -17,7 +17,7 @@ HTMLWidgets.widget({
       	d3.formatDefaultLocale(da_DK);
         var dateOpts = { month: 'short', day: 'numeric' };   // with year: { year: 'numeric', month: 'short', day: 'numeric' };
         var data = HTMLWidgets.dataframeToD3(opts.data);
-      	var margin = { left:100, right:10, top:10, bottom:100 };
+      	var margin = { left:10, right:10, top:10, bottom:10 };
       	var curDate = opts.curDate;
       	var sortx = opts.sortx;
       	var frontColors = opts.frontColors;
@@ -52,8 +52,10 @@ HTMLWidgets.widget({
       	// var svgContainer = d3.select("#chart-area")
       	var svgContainer = d3.select(el)  
       	   .append("svg")
-          		.attr("width", width + margin.left + margin.right)
-          		.attr("height", height + margin.top + margin.bottom);
+      	      .attr("viewBox", "0 0 " + width + " " + height)
+              .attr("preserveAspectRatio", "xMinYMin meet")
+          		//.attr("width", width + margin.left + margin.right)
+          		//.attr("height", height + margin.top + margin.bottom);
       
         // 
       	var group = svgContainer
@@ -150,10 +152,10 @@ HTMLWidgets.widget({
   		
   		  group.selectAll(".x-axis .tickClass").style("opacity",0); 
   		
-  		  //
+        //
       	bars.enter()
-      	 	.append("rect")
-      	 	  .attr('class', 'viz')
+      	  .append("rect")
+      	    .attr('class', 'viz')
       	    .attr("y", function(d) { return y(d.count) })
       	    .attr("x", function(d) { 
       	      return d.monthAndDay == curDate.substr(5,5)? x(d.year) : x(d.year) + barsOffset;
@@ -214,11 +216,11 @@ HTMLWidgets.widget({
 
         // Hook up a function to the savesvg button using FileSaver.js 
         d3.select("#savesvg")
-        .on("click", writeDownloadLink); // This function resides in whitebook_image_tools.js
+         .on("click", writeDownloadLink); // This function resides in whitebook_image_tools.js
         
         // Hook up a function to the savepng button
         d3.select("#savepng")
-        .on("click", saveSvgAsPng ); // This function resides in whitebook_image_tools.js
+         .on("click", saveSvgAsPng ); // This function resides in whitebook_image_tools.js
 
         // Mouse over event handler for circleGroupFront
         function handleMouseOverFront(d, i) {  // Add interactivity

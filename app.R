@@ -14,7 +14,7 @@ con <- dbConnect(drv,
                  user = user, 
                  password = password)
 
-data <- dbGetQuery(con, "select * from datamart.whitebook_test_1 where substr(date::text,1,4) in ('2018','2017','2016','2015','2014');")
+data <- dbGetQuery(con, "select * from whitebook_test_1 where substr(date::text,1,4) in ('2018','2017','2016','2015','2014');")
 
 dbDisconnect(con)
 dbUnloadDriver(drv)
