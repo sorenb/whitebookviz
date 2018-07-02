@@ -3,7 +3,7 @@ White book visualizations in D3.js
 
 Contents:
 ---------
-- samedate_barchart.js: Barchart with offset bars for comparing several years and the same date across several years.
+samedate_barchart.js: Barchart with offset bars for comparing several years and the same date across several years.
 
 Install on a R/Shiny-server:
 ----------------------------
@@ -12,6 +12,8 @@ sudo su - -c "R -e \"devtools::install_github(\"sorenb/whitebookviz\")\""
 Install locally for e.g. RStudio:
 ---------------------------------
 devtools::install_github("sorenb/whitebookviz")
+
+(When building the package locally i.e. not installing from Github, simply use devtools::install() in the console)
 
 
 
@@ -23,13 +25,7 @@ Samedate Barchart
 
   curDate <- "2018-04-30"      # The matching date you want data from, across the years. Date format kan contain hours etc.  
   sortx <- "desc"              # Controls direction of the sorting of the years on the x-axis  
-
-  frontColors <- c('#aeb051','#468c8c','#3b364a','#c03953','#1d72aa')
-
-			       # This vector contains the colors in the specified order of the foreground bars. 
-                               # The colors will start over, if you have more bars than colors.  
-                               # You can use color names, rgb or hex values.    
-
+  frontColors <- c('#aeb051','#468c8c','#3b364a','#c03953','#1d72aa') # This vector contains the colors in the specified order of the foreground bars. The colors will start over, if you have more bars than colors. You can use color names, rgb or hex values.    
   backColor <- "Gainsboro"     # The color of the background bars.  
   vizWidth <- ""  
   labelx <- "År"  
