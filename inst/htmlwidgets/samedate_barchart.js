@@ -17,7 +17,7 @@ HTMLWidgets.widget({
       	d3.formatDefaultLocale(da_DK);
         var dateOpts = { month: 'short', day: 'numeric' };   // with year: { year: 'numeric', month: 'short', day: 'numeric' };
         var data = HTMLWidgets.dataframeToD3(opts.data);
-      	var margin = { left:10, right:10, top:10, bottom:10 };
+      	var margin = { left:100, right:0, top:0, bottom:0 };
       	var curDate = opts.curDate;
       	var sortx = opts.sortx;
       	var frontColors = opts.frontColors;
@@ -27,8 +27,8 @@ HTMLWidgets.widget({
       	var labely = opts.labely;
       	var showScaleY = opts.showScaleY;
       	var barWidth = opts.barWidth;
-      	var width = 1000 - margin.left - margin.right;
-      	var height = 400 - margin.top - margin.bottom;
+      	var width = 1000 ;//- margin.left - margin.right;
+      	var height = 400 ;//- margin.top - margin.bottom;
   		  var barsOffset = opts.barsOffset; // The horizontal offset between front and back bars
   		  //var alignCorrection = (width / 200); // The horizontal offset between front and back bars
   		  var circleSize = (width / 300); // 
@@ -52,7 +52,7 @@ HTMLWidgets.widget({
       	// var svgContainer = d3.select("#chart-area")
       	var svgContainer = d3.select(el)  
       	   .append("svg")
-      	      .attr("viewBox", "0 0 " + width + " " + height)
+      	      .attr("viewBox", "0 60 " + width + " " + height)
               .attr("preserveAspectRatio", "xMinYMin meet")
           		//.attr("width", width + margin.left + margin.right)
           		//.attr("height", height + margin.top + margin.bottom);
@@ -102,7 +102,7 @@ HTMLWidgets.widget({
         // Create category scale for the X-axis
   	    var x = d3.scaleBand()                               // this assigns x-values based on names so data points having 
       		.domain(data.map( function(d) { return d.year }))  // the same names will have the same x-value, hence one rect 
-      		.range([0, width])                                 // being on top of the other with the same name  
+      		.range([0, width - 100])                                 // being on top of the other with the same name  
       		.paddingInner( 1 - barWidth )
       	  .paddingOuter(0.2);
   
